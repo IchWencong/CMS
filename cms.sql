@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS user;
+
+
+CREATE TABLE IF NOT EXISTS user(
+    id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(20) NOT NULL,
+    password CHAR(40) NOT NULL
+)DEFAULT CHARSET=UTF8;
+
+INSERT INTO user(username,password) VALUES('admin', sha1('admin'));

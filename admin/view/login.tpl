@@ -17,5 +17,8 @@
         </div>
     </form>
 </body>
+<script src="{getRootDir()}/public/js/jquery3.js"></script>
+<script src="{getRootDir()}/public/js/layer/layer/layer.js"></script>
+<script src="{getRootDir()}/public/js/dialog.js"></script>
 <script src="{getRootDir()}/public/js/login.js"></script>
 </html>

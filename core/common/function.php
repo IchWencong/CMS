@@ -29,13 +29,12 @@ function makeUrl($ctrl = 'Index',$action = 'index',$params = '')
 {
 	$host    =  'http://'.$_SERVER['HTTP_HOST'];
 	$webdir  =  $_SERVER['SCRIPT_NAME'];
-
 	//如果是index.php,就把它隐藏
 	$pattern =  '/index\.php/';
 	if (preg_match($pattern, $webdir)) {
 		$webdir = preg_replace($pattern, '', $webdir);
 	}
-	$finalUrl = $host.$webdir.$ctrl.'/'.$action;
+	$finalUrl = $host.$webdir.'/'.$ctrl.'/'.$action;
 
 	if ($params) {
 		//如果是字符串直接返回

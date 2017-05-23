@@ -3,7 +3,7 @@
 return array(
 	'MEDOO'   =>   [
 	    'database_type' => 'mysql',
-	    'database_name' => 'exam',
+	    'database_name' => 'cms',
 	    'server' => 'localhost',
 	    'username' => 'root',
 	    'password' => '136189',
