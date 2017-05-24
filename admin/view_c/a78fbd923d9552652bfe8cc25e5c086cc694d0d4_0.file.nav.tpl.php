@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-24 17:31:45
+/* Smarty version 3.1.30, created on 2017-05-24 22:52:05
   from "/var/www/html/admin/view/nav.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59255301d207d5_69907384',
+  'unifunc' => 'content_59259e15daee15_40125286',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a78fbd923d9552652bfe8cc25e5c086cc694d0d4' => 
     array (
       0 => '/var/www/html/admin/view/nav.tpl',
-      1 => 1495618303,
+      1 => 1495636528,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59255301d207d5_69907384 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59259e15daee15_40125286 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
 <style>
@@ -100,6 +100,7 @@ function content_59255301d207d5_69907384 (Smarty_Internal_Template $_smarty_tpl)
 </body>
 <?php echo '<script'; ?>
 >
+    //动态设置iframe的属性
     var i          = $('iframe').get(0);
     i.style.left   = $('.sidebar').eq(0).outerWidth() + 'px';
     i.style.top    = $('nav').eq(0).height() + 'px';  
