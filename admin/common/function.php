@@ -20,5 +20,26 @@ function  show($status, $message,$data=array()) {
  */
 function isLogin()
 {
-    return isset($_COOKIE['username]) ? true : false;
+    return isset($_COOKIE['username']) ? true : false;
+}
+
+/**
+ * 判断数据长度是否合法
+ * @param string $data
+ * @param int    $length
+ * @param string $flag   取值为lessthan或者morethan或者equals
+ * @return boolean
+ */
+function checkLength($data,$length,$flag)
+{
+    if ($flag == 'equals') {
+        return mb_strlen($data,'utf-8') == $length ? true : false;
+    } else if ($flag == 'lessthan') {
+        return mb_strlen($data,'utf-8')  < $length ? true : false;
+    } else if ($flag == 'morethan') {
+        return mb_strlen($data,'utf-8')  > $length ? true : false;
+    } else {
+        p("check_length函数参数传递错误");
+        return false;
+    }
 }

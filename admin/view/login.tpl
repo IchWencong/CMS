@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="{getRootDir()}/public/css/login.css">
 </head>
 <body>
-    <form method="post" action="{makeUrl('Login','index')}">
+    <form method="post">
         <div class="form-group">
             <label for="username">用户名：</label>
             <input type="input" class="form-control" id="username" name="username" placeholder="请输入用户名">
             <label for="password">密码:</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
-            <input type="submit" class="btn-primary submit" value="登录">
+            <input type="button" class="btn-primary submit" value="登录" onclick="login.check()">
         </div>
     </form>
 </body>
