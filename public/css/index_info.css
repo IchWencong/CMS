@@ -1,0 +1,21 @@
+.header,.cont{
+    margin-top:20px;
+    margin-left:3%;
+    padding :20px;
+    font-size:25px;
+}
+.header span{
+    color:green;
+}
+.cont{
+    margin-top:0;
+    font-size:16px;
+    
+}
+.cont .item{
+    width:45%;
+    float:left;
+}
+.right{
+    margin-left:5%;
+}

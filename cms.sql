@@ -45,7 +45,24 @@ CREATE TABLE IF NOT EXISTS _comment(
 CREATE TABLE IF NOT EXISTS basic(
     web_title VARCHAR(12) NOT NULL,
     web_keywords VARCHAR(30) NOT NULL,
-    web_desc VARCHAR(50) NOT NULL
+    web_desc VARCHAR(50) NOT NULL,
+    web_today_login SMALLINT UNSIGNED NOT NULL
 )DEFAULT CHARSET=UTF8;
 
-INSERT INTO basic VALUES ('fireupCMS', 'fireupcms  资讯 体育 新闻 科技', 'ingcms资讯网是提供最新的体育等栏目的新闻网站');
+INSERT INTO basic VALUES ('fireupCMS', 'fireupcms  资讯 体育 新闻 科技', 'ingcms资讯网是提供最新的体育等栏目的新闻网站',0);
+
+--mysql定时任务,用于更新每日登录人数
+SET time_zone='+8:00';
+SET GLOBAL event_scheduler=ON;
+DROP EVENT IF EXISTS update_today_login;
+
+DELIMITER $$
+CREATE EVENT update_today_login
+ON SCHEDULE EVERY 1 DAY STARTS TIMESTAMP '2017-05-24 00:00:00'
+DO
+BEGIN
+UPDATE basic SET web_today_login=0;
+END
+$$
+
+DELIMITER ;

@@ -3,11 +3,13 @@ namespace admin\controller;
 use core\lib\Controller;
 use admin\model\PublicModel;
 use admin\model\AdminModel;
+use admin\model\BasicModel;
 
 class IndexController extends Controller
 {
     private $pmodel = null;
     private $amodel = null;
+    private $bmodel = null;
 
     /**
      * 架构方法
@@ -17,6 +19,7 @@ class IndexController extends Controller
         parent::__construct();
         $this->pmodel = new PublicModel();
         $this->amodel = new AdminModel();
+        $this->bmodel = new BasicModel();
     }
 
     /**
@@ -86,8 +89,11 @@ class IndexController extends Controller
     /**
      * 网站基本信息显示
      */
-    public function 
-
-
-
+    public function info()
+    {
+        $web_title = $this->bmodel->getInfo()[0]['web_title'];
+        
+        $this->smarty->assign('web_title', $web_title);
+        $this->smarty->display('index_info.tpl');
+    }
 }
