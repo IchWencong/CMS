@@ -1,52 +1,38 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-24 23:25:00
+/* Smarty version 3.1.30, created on 2017-05-25 09:34:58
   from "/var/www/html/admin/view/web_settings.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5925a5cc8a7026_08107008',
+  'unifunc' => 'content_592634c2363e23_89218280',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '90d49290aee144c52deb16a1c68ed946c4fa8634' => 
     array (
       0 => '/var/www/html/admin/view/web_settings.tpl',
-      1 => 1495639497,
+      1 => 1495676079,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_5925a5cc8a7026_08107008 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592634c2363e23_89218280 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="<?php echo getRootDir();?>
-/public/css/bootstrap3/css/bootstrap.min.css">
+    <?php $_smarty_tpl->_subTemplateRender("file:static.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
     <link rel="stylesheet" href="<?php echo getRootDir();?>
 /public/css/web_settings.css">
-    <?php echo '<script'; ?>
- src="<?php echo getRootDir();?>
-/public/js/jquery3.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo getRootDir();?>
-/public/js/layer/layer/layer.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo getRootDir();?>
-/public/js/dialog.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo getRootDir();?>
-/public/css/bootstrap3/js/bootstrap.min.js"><?php echo '</script'; ?>
->
     <?php echo '<script'; ?>
  src="<?php echo getRootDir();?>
 /public/js/web_settings.js"><?php echo '</script'; ?>

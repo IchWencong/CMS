@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="{getRootDir()}/public/css/bootstrap3/css/bootstrap.min.css">
+    {include file='static.tpl'}
     <link rel="stylesheet" href="{getRootDir()}/public/css/web_settings.css">
-    <script src="{getRootDir()}/public/js/jquery3.js"></script>
-    <script src="{getRootDir()}/public/js/layer/layer/layer.js"></script>
-    <script src="{getRootDir()}/public/js/dialog.js"></script>
     <script src="{getRootDir()}/public/js/web_settings.js"></script>
 </head>
 <body>

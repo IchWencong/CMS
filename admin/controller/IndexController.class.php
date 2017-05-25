@@ -67,6 +67,7 @@ class IndexController extends Controller
         }
 
         //写入到cookie时注意它的作用域
+        //让它对整个根域都有效
         setcookie('username', $username, time()+3600, '/');
 
         $this->amodel->updateLoginTime($username);
@@ -81,4 +82,12 @@ class IndexController extends Controller
         setcookie('username', '', time()-3600, '/');
         header('location:'.makeUrl());
     }
+
+    /**
+     * 网站基本信息显示
+     */
+    public function 
+
+
+
 }

@@ -21,7 +21,31 @@ $(function(){
         }
 
         if (web_title.length > 12) {
-            
+           dialog.error('站点标题不得大于12位'); 
         }
+        
+        if (web_keywords.length > 30){
+            dialog.error('站点关键字不得多于30位');
+        }
+
+        if (web_desc.length > 50){
+            dialog.error('站点描述不得大于50位');
+        }
+    
+
+        //ajax验证
+        var url   = window.location.origin + '/admin.php/Basic/check';
+        var data  = {'web_title' : web_title, 'web_keywords':web_keywords, 'web_desc':web_desc};
+
+        $.post(url,data,function(result){
+            
+            if (result.status == 0) {
+               dialog.error(result.message);
+            }
+
+            if (result.status == 1) {
+                dialog.success(result.message, window.location.origin + '/admin.php/Basic/index');
+            }
+        }, 'JSON');     
     });
 });
