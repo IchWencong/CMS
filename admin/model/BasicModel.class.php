@@ -31,5 +31,13 @@ class BasicModel extends Model
 
         return $ret   ?  true : false;
     }
+
+    /**
+     * 更新今日登录人数
+     */
+    public function updateTodayLogin()
+    {
+       $this->update('basic',['web_today_login[+]' => 1]);
+    }
 }
 

@@ -4,13 +4,14 @@ use core\lib\Controller;
 use admin\model\PublicModel;
 use admin\model\AdminModel;
 use admin\model\BasicModel;
+use admin\model\ArticleModel;
 
 class IndexController extends Controller
 {
     private $pmodel = null;
     private $amodel = null;
     private $bmodel = null;
-
+    private $articleModel = null;
     /**
      * 架构方法
      */
@@ -20,6 +21,7 @@ class IndexController extends Controller
         $this->pmodel = new PublicModel();
         $this->amodel = new AdminModel();
         $this->bmodel = new BasicModel();
+        $this->articleModel = new ArticleModel();
     }
 
     /**
@@ -45,7 +47,7 @@ class IndexController extends Controller
         $this->smarty->display('login.tpl');
     }
     /**
-     * 登录验证
+     * 登录相关业务处理
      * @return string json字符串
      */
     public function loginCheck()
@@ -73,7 +75,18 @@ class IndexController extends Controller
         //让它对整个根域都有效
         setcookie('username', $username, time()+3600, '/');
 
+        //如果用户最后登录的日期是今天之前
+        //更新basic表中的 'web_today_login(今日登录人数)'
+        //这样能够保证同一个用户每天多次登录只记录一次
+        $nowTime          = date('Y-m-d');
+        $last_login_time  = $this->amodel->getLastLoginTime($username);
+        if ($nowTime > $last_login_time) {
+            $this->bmodel->updateTodayLogin();
+        } 
+
+        //更新用户最后登录时间
         $this->amodel->updateLoginTime($username);
+
         return show(1, '登录成功');
     }
     
@@ -91,9 +104,12 @@ class IndexController extends Controller
      */
     public function info()
     {
-        $web_title = $this->bmodel->getInfo()[0]['web_title'];
-        
-        $this->smarty->assign('web_title', $web_title);
+        $info = $this->bmodel->getInfo()[0];
+        $this->smarty->assign('web_title', $info['web_title']);
+        $this->smarty->assign('today_login', $info['web_today_login']);
+ 
+        $this->smarty->assign('maxReading', $this->articleModel->getMaxReading() ?: 0);
+        $this->smarty->assign('articleCount', $this->articleModel->getArticleCount());
         $this->smarty->display('index_info.tpl');
     }
 }

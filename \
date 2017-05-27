@@ -51,6 +51,5 @@ class AdminModel extends Model
     {
         $info         = $this->select('user', 'last_login_time',['username' => $username]);
         $dealed_time  = substr($info[0], 0,10);
-        return $dealed_time;
     }
 }

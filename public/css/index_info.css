@@ -19,3 +19,31 @@
 .right{
     margin-left:5%;
 }
+div.desc{
+    font-size:35px;
+    color:#333;
+    margin-left:5%;
+    height:40px;
+    line-height:40px;
+}
+div.desc i{
+    position:relative;
+    top:6px;
+    color:green;
+}
+div.panel-body{
+    padding-left:30px;
+}
+div.panel-body i{
+    font-size:65px;
+    color:#337ab7;
+}
+div.panel-body div{
+    float:left;
+}
+div.panel-body .fireup-cont{
+    padding-left : 50px;
+}
+div.panel-body .fireup-msg{
+    font-size:30px;
+}

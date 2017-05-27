@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-24 22:52:05
+/* Smarty version 3.1.30, created on 2017-05-27 08:30:37
   from "/var/www/html/admin/view/nav.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59259e15daee15_40125286',
+  'unifunc' => 'content_5928c8ad43c1b0_48285013',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a78fbd923d9552652bfe8cc25e5c086cc694d0d4' => 
     array (
       0 => '/var/www/html/admin/view/nav.tpl',
-      1 => 1495636528,
+      1 => 1495845005,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59259e15daee15_40125286 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5928c8ad43c1b0_48285013 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
 <style>
@@ -99,24 +99,8 @@ function content_59259e15daee15_40125286 (Smarty_Internal_Template $_smarty_tpl)
 " name="show-page" frameborder="0"></iframe>
 </body>
 <?php echo '<script'; ?>
->
-    //动态设置iframe的属性
-    var i          = $('iframe').get(0);
-    i.style.left   = $('.sidebar').eq(0).outerWidth() + 'px';
-    i.style.top    = $('nav').eq(0).height() + 'px';  
-    i.width        = $(document).width() - $('.sidebar').eq(0).width();
-    i.height       = $(document).height() - $('nav').eq(0).height();
-
-    //导航的点击变色特效
-    activeLi();
-
-    function activeLi(){
-        $('#left').eq(0).find('li').click(function(){
-             $(this).siblings().removeClass('active');
-             $(this).addClass('active');    
-         });
-    }
-<?php echo '</script'; ?>
+ src="<?php echo getRootDir();?>
+/public/js/nav.js"><?php echo '</script'; ?>
 >
 </html>
 <?php }
