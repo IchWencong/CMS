@@ -39,7 +39,7 @@
         <div class="panel panel-default panel-primary">
              <div class="panel-heading">fireupCMS</div>
              <div class="panel-body">
-                <div class="fireup-icon"><i class="glyphicon glyphicon-user"></i></div>
+                <div class="fireup-icon"><i class="glyphicon glyphicon-tags"></i></div>
                 <div class="fireup-cont">
                     <p class="fireup-msg">文章总数</p>
                     <p class="fireup-res">{$articleCount}</p>
@@ -51,10 +51,10 @@
         <div class="panel panel-default panel-primary">
              <div class="panel-heading">fireupCMS</div>
              <div class="panel-body">
-                <div class="fireup-icon"><i class="glyphicon glyphicon-user"></i></div>
+                <div class="fireup-icon"><i class="glyphicon glyphicon-th"></i></div>
                 <div class="fireup-cont">
-                    <p class="fireup-msg">今日登录人数</p>
-                    <p class="fireup-res">100</p>
+                    <p class="fireup-msg">前端导航数</p>
+                    <p class="fireup-res">{$menuCount}</p>
                 </div>
              </div>
         </div>

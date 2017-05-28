@@ -5,6 +5,7 @@ use admin\model\PublicModel;
 use admin\model\AdminModel;
 use admin\model\BasicModel;
 use admin\model\ArticleModel;
+use admin\model\MenuModel;
 
 class IndexController extends Controller
 {
@@ -12,6 +13,7 @@ class IndexController extends Controller
     private $amodel = null;
     private $bmodel = null;
     private $articleModel = null;
+    private $mmodel = null;
     /**
      * 架构方法
      */
@@ -22,6 +24,7 @@ class IndexController extends Controller
         $this->amodel = new AdminModel();
         $this->bmodel = new BasicModel();
         $this->articleModel = new ArticleModel();
+        $this->mmodel = new MenuModel();
     }
 
     /**
@@ -110,6 +113,7 @@ class IndexController extends Controller
  
         $this->smarty->assign('maxReading', $this->articleModel->getMaxReading() ?: 0);
         $this->smarty->assign('articleCount', $this->articleModel->getArticleCount());
+        $this->smarty->assign('menuCount', $this->mmodel->getMenuCount());
         $this->smarty->display('index_info.tpl');
     }
 }

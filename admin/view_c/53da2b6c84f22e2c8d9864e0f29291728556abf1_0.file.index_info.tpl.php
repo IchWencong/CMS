@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 11:29:00
+/* Smarty version 3.1.30, created on 2017-05-28 12:22:49
   from "/var/www/html/admin/view/index_info.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928f27c23f190_43024090',
+  'unifunc' => 'content_592a5099405ed4_76151890',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53da2b6c84f22e2c8d9864e0f29291728556abf1' => 
     array (
       0 => '/var/www/html/admin/view/index_info.tpl',
-      1 => 1495855600,
+      1 => 1495898149,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_5928f27c23f190_43024090 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592a5099405ed4_76151890 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -71,7 +71,7 @@ function content_5928f27c23f190_43024090 (Smarty_Internal_Template $_smarty_tpl)
         <div class="panel panel-default panel-primary">
              <div class="panel-heading">fireupCMS</div>
              <div class="panel-body">
-                <div class="fireup-icon"><i class="glyphicon glyphicon-user"></i></div>
+                <div class="fireup-icon"><i class="glyphicon glyphicon-tags"></i></div>
                 <div class="fireup-cont">
                     <p class="fireup-msg">文章总数</p>
                     <p class="fireup-res"><?php echo $_smarty_tpl->tpl_vars['articleCount']->value;?>
@@ -84,10 +84,11 @@ function content_5928f27c23f190_43024090 (Smarty_Internal_Template $_smarty_tpl)
         <div class="panel panel-default panel-primary">
              <div class="panel-heading">fireupCMS</div>
              <div class="panel-body">
-                <div class="fireup-icon"><i class="glyphicon glyphicon-user"></i></div>
+                <div class="fireup-icon"><i class="glyphicon glyphicon-th"></i></div>
                 <div class="fireup-cont">
-                    <p class="fireup-msg">今日登录人数</p>
-                    <p class="fireup-res">100</p>
+                    <p class="fireup-msg">前端导航数</p>
+                    <p class="fireup-res"><?php echo $_smarty_tpl->tpl_vars['menuCount']->value;?>
+</p>
                 </div>
              </div>
         </div>
