@@ -1,4 +1,5 @@
 USE cms;
+SET NAMES 'UTF8';
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS nav;
 DROP TABLE IF EXISTS article;
@@ -15,12 +16,12 @@ CREATE TABLE IF NOT EXISTS user(
 
 INSERT INTO user(username,password,realname,last_login_time) VALUES('admin', sha1('admin'),'薛文聪',NOW());
 
-CREATE TABLE IF NOT EXISTS nav(
-    nav_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    nav_name VARCHAR(6) NOT NULL,
-    nav_pid SMALLINT UNSIGNED NOT NULL DEFAULT 0,
-    nav_status TINYINT UNSIGNED NOT NULL DEFAULT 1,
-    nav_order SMALLINT UNSIGNED NOT NULL
+CREATE TABLE IF NOT EXISTS menu(
+    menu_id SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    menu_name VARCHAR(6) NOT NULL,
+    menu_pid SMALLINT UNSIGNED NOT NULL DEFAULT 0,
+    menu_status TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    menu_order SMALLINT UNSIGNED NOT NULL
 )DEFAULT CHARSET=UTF8;
 
 CREATE TABLE IF NOT EXISTS article(
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS basic(
     web_today_login SMALLINT UNSIGNED NOT NULL
 )DEFAULT CHARSET=UTF8;
 
-INSERT INTO basic VALUES ('fireupCMS', 'fireupcms  资讯 体育 新闻 科技', 'ingcms资讯网是提供最新的体育等栏目的新闻网站',0);
+INSERT INTO basic VALUES ('fireupCMS', 'fireupcms  资讯 体育 新闻 科技', 'fireupcms资讯网是提供最新的体育等栏目的新闻网站',0);
 
 --mysql定时任务,用于更新每日登录人数
 SET time_zone='+8:00';

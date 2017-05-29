@@ -1,9 +1,9 @@
 <?php
 namespace admin\controller;
-use core\lib\Controller;
+use admin\controller\CommonController;
 use admin\model\BasicModel;
 
-class BasicController extends Controller
+class BasicController extends CommonController
 {
     private $bmodel = null;
     

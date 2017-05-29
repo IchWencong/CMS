@@ -15,7 +15,7 @@
         <a href="{makeUrl('Menu', 'addMenu')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加</a>
     </div>
     <div>
-        <table class="table table-bordered table-hover text-center">
+        <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <th>排序</th>
                 <th>id</th>
@@ -24,29 +24,32 @@
                 <th>操作</th>
             </thead>
             <tbody>
+                <form id="fireup-order">
+                {foreach $allMenuInfo as $menu}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="text" name="listorder[$menu['menu_id']]" value="{$menu['menu_order']}"></td>
+                    <td>{$menu['menu_id']}</td>
+                    <td>{$menu['menu_name']}</td>
+                    <td>{$menu['menu_status']}</td>
+                    <td>
+                        <a href="javascript:void(0)" class="fireup-mod" attr-id="{$menu['menu_id']}"><i class="glyphicon glyphicon-edit"></i></a> 
+                        <a href="javascript:void(0)" class="fireup-del" attr-id="{$menu['menu_id']}"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                    </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {/foreach}
+                <tr><td colspan="5">{$show}</tr>
+                </form>
             </tbody>
         </table>
     </div>
+    <button type="button" id="button-listorder" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>更新排序</button>
 </body>   
+<script>
+    var FIREUP = {
+        listorder_url : '{makeUrl("Menu", "orderMenu")}',
+        delurl        : '{makeUrl("Menu", "delMenu")}',
+        modurl        : '{makeUrl("Menu", "modMenu")}',
+    }
+</script>
+<script src="{getRootDir()}/public/js/fireup.js"></script>
 </html>

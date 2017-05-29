@@ -76,7 +76,7 @@ class IndexController extends Controller
 
         //写入到cookie时注意它的作用域
         //让它对整个根域都有效
-        setcookie('username', $username, time()+3600, '/');
+        setcookie('username', $username, time() + 3600 * 24, '/');
 
         //如果用户最后登录的日期是今天之前
         //更新basic表中的 'web_today_login(今日登录人数)'
@@ -107,6 +107,9 @@ class IndexController extends Controller
      */
     public function info()
     {
+        if (!isLogin()) {
+            echo '<script>window.parent.location.href="'.makeUrl('Index','login').'"</script>';
+        }
         $info = $this->bmodel->getInfo()[0];
         $this->smarty->assign('web_title', $info['web_title']);
         $this->smarty->assign('today_login', $info['web_today_login']);

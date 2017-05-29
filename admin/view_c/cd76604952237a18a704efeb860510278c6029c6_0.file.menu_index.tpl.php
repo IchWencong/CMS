@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-28 12:47:08
+/* Smarty version 3.1.30, created on 2017-05-29 23:42:59
   from "/var/www/html/admin/view/menu_index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592a564c1797d4_02191329',
+  'unifunc' => 'content_592c41837e4007_61029740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cd76604952237a18a704efeb860510278c6029c6' => 
     array (
       0 => '/var/www/html/admin/view/menu_index.tpl',
-      1 => 1495946825,
+      1 => 1496072528,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592a564c1797d4_02191329 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592c41837e4007_61029740 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -45,7 +45,7 @@ function content_592a564c1797d4_02191329 (Smarty_Internal_Template $_smarty_tpl)
 " class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加</a>
     </div>
     <div>
-        <table class="table table-bordered table-hover text-center">
+        <table class="table table-bordered table-hover table-responsive">
             <thead>
                 <th>排序</th>
                 <th>id</th>
@@ -54,31 +54,58 @@ function content_592a564c1797d4_02191329 (Smarty_Internal_Template $_smarty_tpl)
                 <th>操作</th>
             </thead>
             <tbody>
+                <form id="fireup-order">
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allMenuInfo']->value, 'menu');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['menu']->value) {
+?>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="text" name="listorder[$menu['menu_id']]" value="<?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_order'];?>
+"></td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_id'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_name'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_status'];?>
+</td>
+                    <td>
+                        <a href="javascript:void(0)" class="fireup-mod" attr-id="<?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_id'];?>
+"><i class="glyphicon glyphicon-edit"></i></a> 
+                        <a href="javascript:void(0)" class="fireup-del" attr-id="<?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_id'];?>
+"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                    </td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                <tr><td colspan="5"><?php echo $_smarty_tpl->tpl_vars['show']->value;?>
+</tr>
+                </form>
             </tbody>
         </table>
     </div>
+    <button type="button" id="button-listorder" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>更新排序</button>
 </body>   
+<?php echo '<script'; ?>
+>
+    var FIREUP = {
+        listorder_url : '<?php echo makeUrl("Menu","orderMenu");?>
+',
+        delurl        : '<?php echo makeUrl("Menu","delMenu");?>
+',
+        modurl        : '<?php echo makeUrl("Menu","modMenu");?>
+',
+    }
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo getRootDir();?>
+/public/js/fireup.js"><?php echo '</script'; ?>
+>
 </html>
 <?php }
 }
