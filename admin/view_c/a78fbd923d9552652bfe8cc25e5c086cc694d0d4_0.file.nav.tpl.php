@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-27 08:30:37
+/* Smarty version 3.1.30, created on 2017-05-30 23:29:23
   from "/var/www/html/admin/view/nav.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928c8ad43c1b0_48285013',
+  'unifunc' => 'content_592d8fd36a94b5_92730266',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a78fbd923d9552652bfe8cc25e5c086cc694d0d4' => 
     array (
       0 => '/var/www/html/admin/view/nav.tpl',
-      1 => 1495845005,
+      1 => 1496158158,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5928c8ad43c1b0_48285013 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592d8fd36a94b5_92730266 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
 <style>
@@ -86,8 +86,8 @@ function content_5928c8ad43c1b0_48285013 (Smarty_Internal_Template $_smarty_tpl)
 " target="show-page">首页</a></li>
         <li><a href="<?php echo makeUrl('Menu','index');?>
 " target="show-page">菜单管理</a></li> 
-        <li><a href="<?php echo makeUrl('User','index');?>
-" target="show-page">用户管理</a></li>
+        <?php if (isAdminLogin()) {?><li><a href="<?php echo makeUrl('User','index');?>
+" target="show-page">用户管理</a></li><?php }?>
         <li><a href="<?php echo makeUrl('Article','index');?>
 " target="show-page">文章管理</a></li>
         <li><a href="<?php echo makeUrl('Basic','index');?>

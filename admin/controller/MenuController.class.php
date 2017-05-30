@@ -26,14 +26,17 @@ class MenuController extends CommonController
      */
     public function index()
     {
-        $count  = $this->mmodel->count('menu', ['menu_status' => 1]);
+        $count  = $this->mmodel->count('menu');
         $page   = new Page($count, 5);
         $show   = $page->show();
         $where  = [
             'LIMIT' => [
                 $page->firstRow,
                 $page->listRows
-            ]
+            ],
+            'ORDER' =>[
+                'menu_order' => 'ASC',
+            ],
         ];
         //p($count);
         $this->smarty->assign('allMenuInfo', $this->mmodel->getAllMenuInfo($where));
@@ -130,12 +133,21 @@ class MenuController extends CommonController
     public function orderMenu()
     {
         $listorder = $_POST['listorder'];
+        $errors    = [];
+        $jumpurl   = $_SERVER['HTTP_REFERER'];
         try{
-            foreach ($listorder as $order => $id) {
-                $this->mmodel->orderMenu($order, $id); 
+            foreach ($listorder as $id => $order) {
+                $row = $this->mmodel->orderMenu($id, $order); 
+                if ($row === false) {
+                    $errors[] = $id;
+                }
             }
-        } catch (Exception $e){
-            show(0, $e->getMessage());
+        } catch (\Exception $e){
+            show(0, $e->getMessage(), ['jumpurl' => $jumpurl]);
         }
+        if (!empty($errors)) {
+            show(0, '排序失败'.implode(',', $errors), ['jumpurl' => $jumpurl]);
+        }
+        show(1, '排序成功', ['jumpurl' => $jumpurl]);
     }
 }

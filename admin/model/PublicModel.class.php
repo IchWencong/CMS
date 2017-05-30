@@ -17,6 +17,6 @@ class PublicModel extends Model
         foreach ($data as $key => $value) {
             $dealedData[$key]  =  $value;
         }
-        return $this->update($table, $dealedData, $where);
+       return $this->update($table, $dealedData, $where);
     }    
 }

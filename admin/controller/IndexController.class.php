@@ -76,7 +76,7 @@ class IndexController extends Controller
 
         //写入到cookie时注意它的作用域
         //让它对整个根域都有效
-        setcookie('username', $username, time() + 3600 * 24, '/');
+        setcookie('username', $username, time() + 3600 * 4, '/');
 
         //如果用户最后登录的日期是今天之前
         //更新basic表中的 'web_today_login(今日登录人数)'

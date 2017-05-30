@@ -24,6 +24,14 @@ function isLogin()
 }
 
 /**
+ * 判断是否是超级用户登录
+ * @return bool
+ */
+function isAdminLogin()
+{
+    return (isset($_COOKIE['username']) && $_COOKIE['username'] == 'admin') ? true : false;
+}
+/**
  * 判断数据长度是否合法
  * @param string $data
  * @param int    $length

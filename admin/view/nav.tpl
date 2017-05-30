@@ -57,7 +57,7 @@
     <ul class="nav nav-sidebar" id="left">
         <li class="active"><a href="{makeUrl('Index', 'info')}" target="show-page">首页</a></li>
         <li><a href="{makeUrl('Menu', 'index')}" target="show-page">菜单管理</a></li> 
-        <li><a href="{makeUrl('User', 'index')}" target="show-page">用户管理</a></li>
+        {if isAdminLogin()}<li><a href="{makeUrl('User', 'index')}" target="show-page">用户管理</a></li>{/if}
         <li><a href="{makeUrl('Article', 'index')}" target="show-page">文章管理</a></li>
         <li><a href="{makeUrl('Basic', 'index')}" target="show-page">基本管理</a></li>
     </ul>

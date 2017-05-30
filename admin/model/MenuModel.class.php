@@ -93,11 +93,12 @@ class MenuModel extends Model
      * @param string $id    要进行排序的那条记录的id
      * @return mixed 出错时抛出异常
      */
-    public function orderMenu($order, $id)
+    public function orderMenu($id, $order)
     {
-        $id = intval($id);
-        if (!$id || !is_numeric($id) || $id < 0) {
-            throw new Exception('你输入的id不合法');
+        $order = intval($order);
+        if (!$order || !is_numeric($order) || $order < 0) {
+            throw new \Exception('你输入的为非法数值');
         }
+        return $this->update('menu', ['menu_order' => $order], ['menu_id' => $id]);
     }
 }
