@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-30 16:38:31
-  from "/var/www/html/admin/view/menu_add.tpl" */
+/* Smarty version 3.1.30, created on 2017-05-30 17:47:02
+  from "/var/www/html/admin/view/menu_mod.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592d2f87e23126_14297922',
+  'unifunc' => 'content_592d3f96011a19_26136756',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '45c2f1e12594df1f98c2e79e69cec81f92b7499d' => 
+    '4056db2b216fb14e2fcbcd8be982c08b8256ef7e' => 
     array (
-      0 => '/var/www/html/admin/view/menu_add.tpl',
-      1 => 1496133055,
+      0 => '/var/www/html/admin/view/menu_mod.tpl',
+      1 => 1496135285,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592d2f87e23126_14297922 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592d3f96011a19_26136756 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -39,15 +39,16 @@ function content_592d2f87e23126_14297922 (Smarty_Internal_Template $_smarty_tpl)
                 <i class="glyphicon glyphicon-dashboard"></i> <a href="<?php echo makeUrl('Menu','index');?>
 ">菜单管理</a>
             </li>
-            <li class="active">添加菜单</li>
+            <li class="active">修改菜单</li>
         </ol>
     </div>
-    <form id="fireupadd">
+    <form id="fireupmod">
         <div class="form-group">
-            <label for="nav_name">菜单名称: <span> (*不大于6个字符)</span></label>
-            <input type="text" name="menu_name" class="form-control" id="nav_name" placeholder="请填写菜单名称">
+            <label for="nav_name">菜单名称: </label>
+            <input type="text" name="menu_name" class="form-control" id="nav_name" readonly value="<?php echo $_smarty_tpl->tpl_vars['menuInfo']->value['menu_name'];?>
+" placeholder="请填写菜单名称">
             <label>父菜单: </label>
-            <select name="p_id" class="form-control">
+            <select name="menu_pid" class="form-control">
                 <option value="0">没有父菜单</option>
                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allMenuInfo']->value, 'menu');
@@ -67,19 +68,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
             <br />
             <label>状态:</label>
             <div class="form-control">
-                <input type="radio" name="status"" value="1" checked> 开启
-                <input type="radio" name="status"  value="0"> 关闭
+                <input type="radio" name="menu_status" value="1" <?php if ($_smarty_tpl->tpl_vars['menuInfo']->value['menu_status'] == 1) {?>checked<?php }?>> 开启
+                <input type="radio" name="menu_status" value="0" <?php if ($_smarty_tpl->tpl_vars['menuInfo']->value['menu_status'] == 0) {?>checked<?php }?>> 关闭
             </div>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-default btn-primary" id="fireupadd-btn">添加</button>
+            <button type="button" class="btn btn-default btn-primary" id="fireupmod-btn">修改</button>
         </div>
+        <input type="hidden" name="menu_id" value="<?php echo $_smarty_tpl->tpl_vars['menuInfo']->value['menu_id'];?>
+">
     </form>
 </body>
 <?php echo '<script'; ?>
 >
 var FIREUP={
-   addurl : '<?php echo makeUrl("Menu","addMenu");?>
+   modurl : '<?php echo makeUrl("Menu","modMenu");?>
 ',  
    jumpurl : '<?php echo makeUrl("Menu","index");?>
 ',  

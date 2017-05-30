@@ -130,12 +130,6 @@ class MenuController extends CommonController
     public function orderMenu()
     {
         $listorder = $_POST['listorder'];
-        try{
-            foreach ($listorder as $order => $id) {
-                $this->mmodel->orderMenu($order, $id); 
-            }
-        } catch (Exception $e){
-            show(0, $e->getMessage());
-        }
+        p($listorder);
     }
 }

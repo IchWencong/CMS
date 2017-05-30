@@ -62,19 +62,65 @@ function toDelete(url, data){
 }
 
 /**
- *  编辑操作
+ *  修改跳转操作
+ *  这部分代码并不是处理修改页面的业务逻辑的
+ *  而是对进入修改页面前所做的验证,如果验证通过就进入修改页面
  */
 $('.fireup-mod').click(function(){
     var id = $(this).attr('attr-id');
     var data = {};
     var url = FIREUP.modurl;
+    //var jumpurl = 
     data.id = id;
-    $.post(url, data, function(r){
-         if (r.status == 0){
+    $.get(url, data, function(r){
+         if (r && r.status == 0){
             dialog.error(r.message);
             return false;
          }
-         window.location.href=url + '/id/' + id;
      }
     , 'JSON');
+    window.location.href=url + '/id/' + id;
 });
+
+/**
+ * 修改操作
+ * 点击修改按钮后的JS代码
+ */
+$('#fireupmod-btn').click(function(){
+    var data = $('#fireupmod').serializeArray();
+    var postData = {};
+    $(data).each(function(){
+        postData[this.name] = this.value;
+    });
+    var url = FIREUP.modurl;
+    var jumpurl = FIREUP.jumpurl;
+    $.post(url, postData, function(r){
+        if (r.status == 0) {
+            dialog.error(r.message);
+        }
+        if (r.status == 1) {
+            dialog.success(r.message, jumpurl);
+        }
+    }, 'JSON');
+});
+
+/**
+ * 排序操作JS代码
+ *
+ */
+$('#fireup-listorder').click(function(){
+    var data = $('#fireup-order').serializeArray();
+    var postData = {};
+    $(data).each(function(){
+        postData[this.name] = this.value;
+    });
+    var url = FIREUP.listorder_url;
+    $.post(url, postData, function(r){
+        if (r.status == 0) {
+            dialog.error(r.message);
+        }
+        if (r.status == 1){
+            dialog.success(r.message, r.data['jumpurl']);
+        }
+    },'JSON');
+ });

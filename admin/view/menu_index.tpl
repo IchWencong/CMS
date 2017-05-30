@@ -27,10 +27,10 @@
                 <form id="fireup-order">
                 {foreach $allMenuInfo as $menu}
                 <tr>
-                    <td><input type="text" name="listorder[$menu['menu_id']]" value="{$menu['menu_order']}"></td>
+                    <td><input type="text" name="listorder[{$menu['menu_id']}]" value="{$menu['menu_order']}"></td>
                     <td>{$menu['menu_id']}</td>
                     <td>{$menu['menu_name']}</td>
-                    <td>{$menu['menu_status']}</td>
+                    <td>{if $menu['menu_status']==1}正常{else}关闭{/if}</td>
                     <td>
                         <a href="javascript:void(0)" class="fireup-mod" attr-id="{$menu['menu_id']}"><i class="glyphicon glyphicon-edit"></i></a> 
                         <a href="javascript:void(0)" class="fireup-del" attr-id="{$menu['menu_id']}"><i class="glyphicon glyphicon-remove-circle"></i></a>
@@ -42,7 +42,7 @@
             </tbody>
         </table>
     </div>
-    <button type="button" id="button-listorder" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>更新排序</button>
+    <button type="button" id="fireup-listorder" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>更新排序</button>
 </body>   
 <script>
     var FIREUP = {

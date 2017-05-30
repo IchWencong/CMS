@@ -86,4 +86,18 @@ class MenuModel extends Model
             'LIMIT' =>  1,
         ])[0];
     }
+    
+    /**
+     * 菜单排序
+     * @param string $order 排序值
+     * @param string $id    要进行排序的那条记录的id
+     * @return mixed 出错时抛出异常
+     */
+    public function orderMenu($order, $id)
+    {
+        $id = intval($id);
+        if (!$id || !is_numeric($id) || $id < 0) {
+            throw new Exception('你输入的id不合法');
+        }
+    }
 }
