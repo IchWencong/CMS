@@ -8,11 +8,11 @@
     <div>
         <ol class="breadcrumb">
             <li>
-                <i class="glyphicon glyphicon-dashboard"></i> <a href="{makeUrl('User', 'index')}">用户管理</a>
+                <i class="glyphicon glyphicon-dashboard"></i> <a href="{makeUrl('Article', 'index')}">文章管理</a>
             </li>
-            <li class="active">用户列表</li>
+            <li class="active">文章列表</li>
         </ol>
-        <a href="{makeUrl('User', 'addUser')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加</a>
+        <a href="{makeUrl('Article', 'addArticle')}" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加</a>
     </div>
     <div>
         <table class="table table-bordered table-hover table-responsive">

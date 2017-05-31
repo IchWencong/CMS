@@ -57,13 +57,13 @@ SET time_zone='+8:00';
 SET GLOBAL event_scheduler=ON;
 DROP EVENT IF EXISTS update_today_login;
 
-DELIMITER $$
-CREATE EVENT update_today_login
-ON SCHEDULE EVERY 1 DAY STARTS TIMESTAMP '2017-05-24 00:00:00'
-DO
-BEGIN
-UPDATE basic SET web_today_login=0;
-END
-$$
-
-DELIMITER ;
+--DELIMITER $$
+--CREATE EVENT update_today_login
+--ON SCHEDULE EVERY 1 SECOND STARTS TIMESTAMP '2017-05-24 00:00:00'
+--DO
+--BEGIN
+--UPDATE basic SET web_today_login=0;
+--END
+--$$
+--
+--DELIMITER ;

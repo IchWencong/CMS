@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-30 23:29:23
+/* Smarty version 3.1.30, created on 2017-05-31 15:13:16
   from "/var/www/html/admin/view/nav.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592d8fd36a94b5_92730266',
+  'unifunc' => 'content_592e6d0c2d7e46_51990635',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a78fbd923d9552652bfe8cc25e5c086cc694d0d4' => 
     array (
       0 => '/var/www/html/admin/view/nav.tpl',
-      1 => 1496158158,
+      1 => 1496214792,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_592d8fd36a94b5_92730266 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592e6d0c2d7e46_51990635 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <body>
 <style>
@@ -70,7 +70,8 @@ function content_592d8fd36a94b5_92730266 (Smarty_Internal_Template $_smarty_tpl)
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i><?php echo $_COOKIE['username'];?>
 <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="<?php echo makeUrl('User','userMod');?>
+                <li><a href="<?php echo makeUrl('User','userinfo');?>
+/id/<?php echo $_COOKIE['username'];?>
 " target="show-page"><i class="glyphicon glyphicon-user"></i> 个人中心</a></li>
                 <li class="divider"></li>
                 <li><a href="<?php echo makeUrl('Index','logout');?>

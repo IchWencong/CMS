@@ -45,7 +45,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>{$smarty.cookies.username}<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="{makeUrl('User', 'userMod')}" target="show-page"><i class="glyphicon glyphicon-user"></i> 个人中心</a></li>
+                <li><a href="{makeUrl('User', 'userinfo')}/id/{$smarty.cookies.username}" target="show-page"><i class="glyphicon glyphicon-user"></i> 个人中心</a></li>
                 <li class="divider"></li>
                 <li><a href="{makeUrl('Index', 'logout')}"><i class="glyphicon glyphicon-off"></i>退出</a></li>
             </ul>

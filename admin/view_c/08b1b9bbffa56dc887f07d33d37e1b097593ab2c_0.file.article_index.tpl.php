@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-31 15:13:46
-  from "/var/www/html/admin/view/user_index.tpl" */
+/* Smarty version 3.1.30, created on 2017-05-31 15:52:32
+  from "/var/www/html/admin/view/article_index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592e6d2a16c616_72103188',
+  'unifunc' => 'content_592e764082b1b3_01109439',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '112d77869a1185cc800ea4e6cc0bdf8b6f4bad83' => 
+    '08b1b9bbffa56dc887f07d33d37e1b097593ab2c' => 
     array (
-      0 => '/var/www/html/admin/view/user_index.tpl',
-      1 => 1496214751,
+      0 => '/var/www/html/admin/view/article_index.tpl',
+      1 => 1496216646,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592e6d2a16c616_72103188 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592e764082b1b3_01109439 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -36,12 +36,12 @@ function content_592e6d2a16c616_72103188 (Smarty_Internal_Template $_smarty_tpl)
     <div>
         <ol class="breadcrumb">
             <li>
-                <i class="glyphicon glyphicon-dashboard"></i> <a href="<?php echo makeUrl('User','index');?>
-">用户管理</a>
+                <i class="glyphicon glyphicon-dashboard"></i> <a href="<?php echo makeUrl('Article','index');?>
+">文章管理</a>
             </li>
-            <li class="active">用户列表</li>
+            <li class="active">文章列表</li>
         </ol>
-        <a href="<?php echo makeUrl('User','addUser');?>
+        <a href="<?php echo makeUrl('Article','addArticle');?>
 " class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>添加</a>
     </div>
     <div>

@@ -125,7 +125,7 @@ class UserController extends CommonController
             }
 
             if (!$realname) {
-                $realname = 'fireup';
+               $_POST['realname'] = 'fireup'; 
             }
             if (checkLength($username, 20, 'morethan')) {
                 return show(0, '用户名不得大于20位');
@@ -146,6 +146,15 @@ class UserController extends CommonController
                     return show(0, '该用户名称已经被占用');
                 }
             }
-    
+    }
+
+    /**
+     * 个人中心
+     */
+    public function userinfo()
+    {
+        $id = $_GET['id'];
+        $this->smarty->assign('userInfo', $this->umodel->getOneUser($id));
+        $this->smarty->display('user_info.tpl');
     }
 }
