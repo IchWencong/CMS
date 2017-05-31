@@ -17,7 +17,7 @@
         <p><span>用户名：</span>{$userInfo['username']}</p>
         <p><span>真实姓名：</span>{$userInfo['realname']}</p>
         <p><span>用户ID：</span>{$userInfo['id']}</p>
-        <p><span>角色：</span>{if isAdminLogin()}超级管理员{else}普通管理员{/if}</p>
+        <p><span>角色：</span>{if $userInfo['username'] == 'admin'}超级管理员{else}普通管理员{/if}</p>
     </div>
 </body>
 </html>

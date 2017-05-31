@@ -17,34 +17,38 @@
     <div>
         <table class="table table-bordered table-hover table-responsive">
             <thead>
-                <th>用户名</th>
-                <th>真实姓名</th>
-                <th>最后登录时间</th>
+                <th>文章标题</th>
+                <th>所属菜单</th>
+                <th>来源</th>
+                <th>发布时间</th>
+                <th>阅读数</th>
+                <th>状态</th>
                 <th>操作</th>
             </thead>
             <tbody>
-                <form id="fireup-order">
-                {foreach $allUserInfo as $user}
+                {foreach $allArticleInfo as $article}
                 <tr>
-                    <td><a href="{makeUrl('User', 'userinfo')}/id/{$user['id']}">{$user['username']}</a></td>
-                    <td>{$user['realname']}</td>
-                    <td>{$user['last_login_time']}</td>
+                    <td>{$article['a_title']}</td>
+                    <td>{$article['menu_name']}</td>
+                    <td>{$article['a_copy_from']}</td>
+                    <td>{$article['a_create_time']}</td>
+                    <td>{$article['a_count']}</td>
+                    <td>{$article['a_status']}</td>
                     <td>
                         <a href="javascript:void(0)" class="fireup-mod" attr-id="{$user['id']}"><i class="glyphicon glyphicon-edit"></i></a> 
                         <a href="javascript:void(0)" class="fireup-del" attr-id="{$user['id']}"><i class="glyphicon glyphicon-remove-circle"></i></a>
                     </td>
                 </tr>
                 {/foreach}
-                <tr><td colspan="5">{$show}</tr>
-                </form>
+                <tr><td colspan="7">{$show}</tr>
             </tbody>
         </table>
     </div>
 </body>   
 <script>
     var FIREUP = {
-        modurl        : '{makeUrl("User", "modUser")}',
-        delurl        : '{makeUrl("User", "delUser")}',
+        modurl        : '{makeUrl("Article", "modArticle")}',
+        delurl        : '{makeUrl("Article", "delArticle")}',
     }
 </script>
 <script src="{getRootDir()}/public/js/fireup.js"></script>

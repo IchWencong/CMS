@@ -21,6 +21,7 @@ class ArticleController extends CommonController
 
     public function index()
     {
+       $this->smarty->assign('allArticleInfo', $this->amodel->getAllArticleInfo());
        $this->smarty->display('article_index.tpl');
     }
     

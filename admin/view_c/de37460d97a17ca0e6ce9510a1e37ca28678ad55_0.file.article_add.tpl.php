@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-31 15:54:15
+/* Smarty version 3.1.30, created on 2017-05-31 21:12:32
   from "/var/www/html/admin/view/article_add.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592e76a7bf4c84_22820032',
+  'unifunc' => 'content_592ec14011ec60_07706452',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de37460d97a17ca0e6ce9510a1e37ca28678ad55' => 
     array (
       0 => '/var/www/html/admin/view/article_add.tpl',
-      1 => 1496217253,
+      1 => 1496235935,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592e76a7bf4c84_22820032 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592ec14011ec60_07706452 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -30,7 +30,9 @@ function content_592e76a7bf4c84_22820032 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
     <link rel="stylesheet" href="<?php echo getRootDir();?>
-/public/css/menu_add.css">
+/public/css/article_add.css">
+    <link rel="stylesheet" href="<?php echo getRootDir();?>
+/public/wangEditor/dist/css/wangEditor.css">
 </head>
 <body>
     <div>
@@ -42,56 +44,74 @@ function content_592e76a7bf4c84_22820032 (Smarty_Internal_Template $_smarty_tpl)
             <li class="active">添加文章</li>
         </ol>
     </div>
-    <form id="fireupadd">
+    <form id="fireupadd" class="form-horizontal">
         <div class="form-group">
-            <label for="a_title">文章标题: <span> (*不大于50个字符)</span></label>
-            <input type="text" name="username" class="form-control" id="username" placeholder="请填写用户名">
-            <label for="realname">类别: </label>
-            <select name="a_catid" class="form-control">
-                <?php
+            <label for="a_title" class="col-sm-2 control-label">文章标题</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="a_title" name="a_title" placeholder="请输入文章标题">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">类别 </label>
+            <div class="col-sm-10">
+                <select name="a_catid" class="form-control">
+                    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allMenuInfo']->value, 'menu');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['menu']->value) {
 ?>
-                <option value="<?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_id'];?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['menu']->value['menu_name'];?>
 </option>
-                <?php
+                    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-            </select>
-            <label>来源: </label>
-            <select name="a_copy_from" class="form-control">
-                <?php
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">来源 </label>
+            <div class="col-sm-10">
+                <select name="a_copy_from" class="form-control">
+                    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, @constant('COPY_FROM'), 'val');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['val']->value) {
 ?>
-                <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['val']->value;?>
 </option>
-                <?php
+                    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-            </select>
+                </select>
+            </div>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-default btn-primary" id="fireupadd-btn">添加</button>
+            <label class="col-sm-2 control-label">文章内容</label>
+            <div class="col-sm-10">
+                <textarea name="a_cont" id="wang" style="height:400px;"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-default btn-primary" id="fireupadd-btn">添加</button>
+            </div>
         </div>
     </form>
 </body>
 <?php echo '<script'; ?>
 >
 var FIREUP={
-   addurl : '<?php echo makeUrl("User","addUser");?>
+   addurl : '<?php echo makeUrl("Article","addUser");?>
 ',  
-   jumpurl : '<?php echo makeUrl("User","index");?>
+   jumpurl : '<?php echo makeUrl("Article","index");?>
 ',  
 };
 <?php echo '</script'; ?>
@@ -99,6 +119,14 @@ var FIREUP={
 <?php echo '<script'; ?>
  src="<?php echo getRootDir();?>
 /public/js/fireup.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo getRootDir();?>
+/public/wangEditor/dist/js/wangEditor.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="<?php echo getRootDir();?>
+/public/js/wangConfig.js"><?php echo '</script'; ?>
 >
 </html>
 <?php }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-31 15:52:32
+/* Smarty version 3.1.30, created on 2017-05-31 22:00:37
   from "/var/www/html/admin/view/article_index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592e764082b1b3_01109439',
+  'unifunc' => 'content_592ecc85b8a821_19000129',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '08b1b9bbffa56dc887f07d33d37e1b097593ab2c' => 
     array (
       0 => '/var/www/html/admin/view/article_index.tpl',
-      1 => 1496216646,
+      1 => 1496239234,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592e764082b1b3_01109439 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592ecc85b8a821_19000129 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -47,26 +47,32 @@ function content_592e764082b1b3_01109439 (Smarty_Internal_Template $_smarty_tpl)
     <div>
         <table class="table table-bordered table-hover table-responsive">
             <thead>
-                <th>用户名</th>
-                <th>真实姓名</th>
-                <th>最后登录时间</th>
+                <th>文章标题</th>
+                <th>所属菜单</th>
+                <th>来源</th>
+                <th>发布时间</th>
+                <th>阅读数</th>
+                <th>状态</th>
                 <th>操作</th>
             </thead>
             <tbody>
-                <form id="fireup-order">
                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allUserInfo']->value, 'user');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allArticleInfo']->value, 'article');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 ?>
                 <tr>
-                    <td><a href="<?php echo makeUrl('User','userinfo');?>
-/id/<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
-"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
-</a></td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['user']->value['realname'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_title'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['user']->value['last_login_time'];?>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['menu_name'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_copy_from'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_create_time'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_count'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_status'];?>
 </td>
                     <td>
                         <a href="javascript:void(0)" class="fireup-mod" attr-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
@@ -81,9 +87,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-                <tr><td colspan="5"><?php echo $_smarty_tpl->tpl_vars['show']->value;?>
+                <tr><td colspan="7"><?php echo $_smarty_tpl->tpl_vars['show']->value;?>
 </tr>
-                </form>
             </tbody>
         </table>
     </div>
@@ -91,9 +96,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 <?php echo '<script'; ?>
 >
     var FIREUP = {
-        modurl        : '<?php echo makeUrl("User","modUser");?>
+        modurl        : '<?php echo makeUrl("Article","modArticle");?>
 ',
-        delurl        : '<?php echo makeUrl("User","delUser");?>
+        delurl        : '<?php echo makeUrl("Article","delArticle");?>
 ',
     }
 <?php echo '</script'; ?>
