@@ -33,10 +33,10 @@
                     <td>{$article['a_copy_from']}</td>
                     <td>{$article['a_create_time']}</td>
                     <td>{$article['a_count']}</td>
-                    <td>{$article['a_status']}</td>
+                    <td>{if $article['a_status'] == 1}正常{else}关闭{/if}</td>
                     <td>
-                        <a href="javascript:void(0)" class="fireup-mod" attr-id="{$user['id']}"><i class="glyphicon glyphicon-edit"></i></a> 
-                        <a href="javascript:void(0)" class="fireup-del" attr-id="{$user['id']}"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                        <a href="javascript:void(0)" class="fireup-mod" attr-id="{$article['a_id']}"><i class="glyphicon glyphicon-edit"></i></a> 
+                        <a href="javascript:void(0)" class="fireup-del" attr-id="{$article['a_id']}"><i class="glyphicon glyphicon-remove-circle"></i></a>
                     </td>
                 </tr>
                 {/foreach}

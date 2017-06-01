@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-31 22:00:37
+/* Smarty version 3.1.30, created on 2017-06-01 11:14:59
   from "/var/www/html/admin/view/article_index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592ecc85b8a821_19000129',
+  'unifunc' => 'content_592f86b3ca9649_79029921',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '08b1b9bbffa56dc887f07d33d37e1b097593ab2c' => 
     array (
       0 => '/var/www/html/admin/view/article_index.tpl',
-      1 => 1496239234,
+      1 => 1496286371,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592ecc85b8a821_19000129 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592f86b3ca9649_79029921 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -72,12 +72,11 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_count'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['article']->value['a_status'];?>
-</td>
+                    <td><?php if ($_smarty_tpl->tpl_vars['article']->value['a_status'] == 1) {?>正常<?php } else { ?>关闭<?php }?></td>
                     <td>
-                        <a href="javascript:void(0)" class="fireup-mod" attr-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+                        <a href="javascript:void(0)" class="fireup-mod" attr-id="<?php echo $_smarty_tpl->tpl_vars['article']->value['a_id'];?>
 "><i class="glyphicon glyphicon-edit"></i></a> 
-                        <a href="javascript:void(0)" class="fireup-del" attr-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['id'];?>
+                        <a href="javascript:void(0)" class="fireup-del" attr-id="<?php echo $_smarty_tpl->tpl_vars['article']->value['a_id'];?>
 "><i class="glyphicon glyphicon-remove-circle"></i></a>
                     </td>
                 </tr>
