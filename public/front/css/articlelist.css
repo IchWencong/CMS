@@ -1,0 +1,24 @@
+.article-list{
+    margin-left:10%;
+    width:50%;;
+    float:left;
+}
+.article-list .item{
+    height:60px;
+    padding:10px 0;
+    margin:10px 0;
+    border-bottom:1px dashed #ccc;
+}
+.article-list .item h2{
+    margin-bottom:10px;    
+}
+.article-list .item span{
+    display:block;   
+}
+.article-list .item span.copy-from{
+    float:left;
+}
+.article-list .item span.create-time, .article-list .item span.count {
+    margin:0 20px;
+    float:right;
+}

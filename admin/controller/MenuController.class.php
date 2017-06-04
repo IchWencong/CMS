@@ -106,11 +106,13 @@ class MenuController extends CommonController
         if ($_POST){
             $menu_id     = $_POST['menu_id'];
             unset($_POST['menu_id']);
+            $jumpurl     = $_POST['jumpurl'];
+            unset($_POST['jumpurl']);
             if (!$this->mmodel->menuExists($menu_id)) {
                 show(0, '该菜单不存在');
             }
             $ret = $this->pmodel->mod('menu', $_POST, ['menu_id' => $menu_id]);
-            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息');
+            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息', ['jumpurl' => $jumpurl]);
         }
 
 
@@ -134,7 +136,6 @@ class MenuController extends CommonController
     {
         $listorder = $_POST['listorder'];
         $errors    = [];
-        $jumpurl   = $_SERVER['HTTP_REFERER'];
         try{
             foreach ($listorder as $id => $order) {
                 $row = $this->mmodel->orderMenu($id, $order); 
@@ -143,11 +144,11 @@ class MenuController extends CommonController
                 }
             }
         } catch (\Exception $e){
-            show(0, $e->getMessage(), ['jumpurl' => $jumpurl]);
+            show(0, $e->getMessage(), ['jumpurl' => JUMPURL]);
         }
         if (!empty($errors)) {
-            show(0, '排序失败'.implode(',', $errors), ['jumpurl' => $jumpurl]);
+            show(0, '排序失败'.implode(',', $errors), ['jumpurl' => JUMPURL]);
         }
-        show(1, '排序成功', ['jumpurl' => $jumpurl]);
+        show(1, '排序成功', ['jumpurl' => JUMPURL]);
     }
 }

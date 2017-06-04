@@ -22,6 +22,12 @@ class UserController extends CommonController
     
     public function index()
     {
+    
+        if (!isAdminLogin()){
+            p('没有权限');
+            exit;
+        }
+
         $count  = $this->umodel->count('user');
         $page   = new Page($count, 5);
         $show   = $page->show();
@@ -92,8 +98,12 @@ class UserController extends CommonController
             //把id取出来当做条件,然后再把它删除掉
             $id = $_POST['id'];
             unset($_POST['id']);
+
+            //上上一页的地址
+            $jumpurl = $_POST['jumpurl'];
+            unset($_POST['jumpurl']);
             $ret = $this->pmodel->mod('user', $_POST, ['id' => $id]);
-            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息');
+            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息', ['jumpurl' => $jumpurl]);
         }
 
 

@@ -1,0 +1,87 @@
+.header{
+    height:40px;
+    width:100%;
+    background:#222;
+    color:#fff;
+    margin:0;
+}
+.header .center{
+    margin-left:20%;
+    width:60%;
+}
+.header p,.header ul,.header ul li{
+    float:left;
+    height:100%;
+    line-height:40px;
+}
+.header p{
+    width:150px;
+    font-size:20px;
+    font-family:Arial,Verdana,Sans-serif;
+}
+.header ul li{
+    list-style:none;
+    width:100px;
+    text-align:center;
+}
+.header ul li a:link,.header ul li a:visited{
+    display:block;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.header ul li:hover,.header ul li.hover{
+    background:#ccc;
+    color:black;
+}
+.main{
+    width:80%;
+    margin-top:30px;
+    margin-left:10%;
+    min-height:500px;
+}
+.main .i_box{
+    float:left;
+    margin-top:0;
+}
+.main .sidebar{
+    width:30%;
+    min-height:300px;
+    float:right;
+}
+
+.main .sidebar p{
+    text-align:center;
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid #ccc;
+}
+.main .sidebar ul{
+    width:90%;
+    height:100%;
+    margin-left:10%;
+}
+ul li.num1{
+    background-image:url('../images/num1.png');
+}
+ul li.num2{
+    background-image:url('../images/num2.png');
+}
+ul li.num3{
+    background-image:url('../images/num3.png');
+}
+ul li.num4{
+    background-image:url('../images/num4.png');
+}
+.main .sidebar ul li{
+    list-style:none;
+    width:100%;
+    min-height:40px;
+    line-height:50px;
+    padding-bottom:10px;
+    padding-left:25px;
+    border-bottom:1px dashed #ccc;
+    background-repeat: no-repeat;
+    background-position:left center;
+}
+

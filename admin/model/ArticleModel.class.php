@@ -72,4 +72,34 @@ class ArticleModel extends Model
             'LIMIT' =>  1,
         ])[0];
     }
+
+    /**
+     * 获取最热的几篇文章
+     * @param int $num 要获取多少篇
+     */
+    public function getTopArticles($num)
+    {
+        return $this->select('article', '*',[
+            'ORDER'   => [
+                'a_count'  => 'DESC'
+            ],
+            'LIMIT' => $num
+        ]) ?: false;
+    }
+
+    /**
+     * 更新文章阅读数
+     * @param int $id 文章id
+     */
+    public function updateArticleCount($id)
+    {
+        $this->update('article', 
+            [
+                'a_count[+]' => 1
+            ],
+            [
+                'a_id' => $id
+            ]
+        );
+    }
 }

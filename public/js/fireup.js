@@ -93,13 +93,16 @@ $('#fireupmod-btn').click(function(){
         postData[this.name] = this.value;
     });
     var url = FIREUP.modurl;
-    var jumpurl = FIREUP.jumpurl;
+    
+    //获取上一页地址，发送给后端
+    postData['jumpurl'] = document.referrer;
+
     $.post(url, postData, function(r){
         if (r.status == 0) {
             dialog.error(r.message);
         }
         if (r.status == 1) {
-            dialog.success(r.message, jumpurl);
+            dialog.success(r.message, r.data['jumpurl']);
         }
     }, 'JSON');
 });

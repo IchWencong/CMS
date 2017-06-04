@@ -31,7 +31,7 @@ class ArticleController extends CommonController
                 $page->listRows
             ],
         ];
-        //p($count);
+
         $this->smarty->assign('allArticleInfo', $this->amodel->getAllArticleInfo($where));
         $this->smarty->assign('show', $show);
         $this->smarty->display('article_index.tpl');
@@ -77,8 +77,10 @@ class ArticleController extends CommonController
             $this->check();
             $a_id     = $_POST['a_id'];
             unset($_POST['a_id']);
+            $jumpurl = $_POST['jumpurl'];
+            unset($_POST['jumpurl']);
             $ret = $this->pmodel->mod('article', $_POST, ['a_id' => $a_id]);
-            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息');
+            show($ret ? 1 : 0, $ret ? '修改成功' : '没有修改任何信息', ['jumpurl' => $jumpurl]);
         }
 
 

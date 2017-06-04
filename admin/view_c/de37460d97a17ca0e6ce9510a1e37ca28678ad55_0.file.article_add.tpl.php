@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-01 11:44:02
+/* Smarty version 3.1.30, created on 2017-06-02 08:19:34
   from "/var/www/html/admin/view/article_add.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592f8d82f36050_65298358',
+  'unifunc' => 'content_5930af16ba1f21_36228125',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de37460d97a17ca0e6ce9510a1e37ca28678ad55' => 
     array (
       0 => '/var/www/html/admin/view/article_add.tpl',
-      1 => 1496286678,
+      1 => 1496362724,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:static.tpl' => 1,
   ),
 ),false)) {
-function content_592f8d82f36050_65298358 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5930af16ba1f21_36228125 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -111,7 +111,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 var FIREUP={
    addurl : '<?php echo makeUrl("Article","addArticle");?>
 ',  
-   jumpurl : '<?php echo makeUrl("Article","index");?>
+   imgurl : '<?php echo makeUrl("Common","upload");?>
 ',  
 };
 <?php echo '</script'; ?>

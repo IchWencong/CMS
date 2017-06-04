@@ -1,0 +1,29 @@
+*{
+    padding:0;
+    margin:0;
+}
+a:link,a:visited{
+    color:#666;
+    text-decoration:none;
+}
+a:active,a:hover{
+    color:red;
+    text-decoration:none;
+}
+/* 分页样式--begin */
+div.page{
+    text-align:center;
+}
+.current,.num{
+    display: inline-block;
+    border:1px solid #ccc;
+    width: 20px;
+    height: 24px;
+    line-height: 24px;
+    margin: 5px 3px 0 3px;
+    background: 
+}
+.current{
+    border: none;
+}
+.num:hover{

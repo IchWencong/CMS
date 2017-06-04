@@ -4,6 +4,13 @@
  * @author xwc
  */
 
+/**
+ * 格式化json
+ * @param int $status 状态 取值为0或1，0代表失败，1代表成功
+ * @param string $message 提示信息
+ * @data array 要额外发送的数据
+ * @return json 并且终止php脚本的执行
+ */
 function  show($status, $message,$data=array()) {
     $reuslt = array(
         'status' => $status,
@@ -36,7 +43,7 @@ function isAdminLogin()
  * @param string $data
  * @param int    $length
  * @param string $flag   取值为lessthan或者morethan或者equals
- * @return boolean
+ * @return bool
  */
 function checkLength($data,$length,$flag)
 {
