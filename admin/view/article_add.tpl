@@ -58,6 +58,7 @@
 var FIREUP={
    addurl : '{makeUrl("Article", "addArticle")}',  
    imgurl : '{makeUrl("Common", "upload")}',  
+   jumpurl : window.location.href,
 };
 </script>
 <script src="{getRootDir()}/public/js/fireup.js"></script>

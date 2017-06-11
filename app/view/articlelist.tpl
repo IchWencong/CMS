@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="{$web_desc}">
-    <meta name="keywords" content="{$web_keywords}">
-    <title>{$web_title}</title>
+    <meta name="description" content="{$basic['web_desc']}">
+    <meta name="keywords" content="{$basic['web_keywords']}">
+    <title>{$basic['web_title']}</title>
     <fireup style="display:none;">{$cat}</fireup>
     <link rel="stylesheet" href="{getRootDir()}/public/front/css/basic.css">
     <link rel="stylesheet" href="{getRootDir()}/public/front/css/index.css">
